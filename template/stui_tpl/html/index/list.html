@@ -1,0 +1,57 @@
+<!-- D014 by v.shoutu.cn -->
+{maccms:type ids="parent" order="asc" by="sort" id="vo1" key="key1" flag="vod"}						
+<div class="stui-pannel stui-pannel-bg clearfix">	
+	<div class="stui-pannel-box clearfix">	
+		<div class="stui-pannel_bd clearfix">								
+			<div class="col-lg-wide-75 col-xs-1 padding-0">	
+				<div class="stui-pannel_hd">
+					<div class="stui-pannel__head active bottom-line clearfix">
+						<a class="more text-muted pull-right" href="{:mac_url_type($vo1,[],'show')}">更多 <i class="icon iconfont icon-more"></i></a>
+						<h3 class="title">
+							<img src="{$maccms.path}statics/icon/icon_{$vo1.type_id}.png"/>
+							<a href="{:mac_url_type($vo1,[],'show')}">最新{$vo1.type_name}</a>
+						</h3>						
+						<ul class="nav nav-text pull-right hidden-sm hidden-xs">
+							{maccms:type parent="'.$vo1['type_id'].'" order="asc" by="sort" id="vo2" key="key2"}
+		                    <li><a href="{:mac_url_type($vo2,[],'show')}" class="text-muted">{$vo2.type_name}</a> <span class="split-line"></span></li>
+		                    {/maccms:type}
+						</ul>
+					</div>																		
+				</div>
+				<ul class="stui-vodlist clearfix">											
+					{maccms:vod num="12" type="'.$vo1['type_id'].'" order="desc" by="time"}
+					<li class="col-md-6 col-sm-4 col-xs-3">
+						{include file="block/vod_box"}													
+					</li>
+					{/maccms:vod} 
+				</ul>
+				<ul class="stui-vodlist__text col-pd clearfix hidden-xs">
+					{maccms:vod num="24" type="'.$vo1['type_id'].'" order="desc" by="time" start="13"}
+					<li class="col-md-4 col-sm-3 col-xs-1 padding-0">
+						<a class="top-line-dot text-overflow" href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}">
+							<span class="text-muted pull-right">{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</span>
+							{$vo.vod_name|mac_substring=12}
+						</a>									
+					</li>
+					{/maccms:vod}
+				</ul>
+			</div>
+			<div class="col-lg-wide-25 hidden-md hidden-sm hidden-xs">
+				<div class="stui-pannel_hd">
+					<div class="stui-pannel__head active bottom-line clearfix">
+						<h3 class="title">
+							<img src="{$maccms.path}statics/icon/icon_12.png"/>
+							<a href="{:mac_url_type($vo1,[],'show')}">{$vo1.type_name}周榜单</a>
+						</h3>						
+					</div>																		
+				</div>
+				<ul class="stui-vodlist__text active col-pd clearfix">
+					{maccms:vod num="20" type="'.$vo1['type_id'].'" order="desc" by="hits_week"}
+						{include file="block/vod_box_rank"}	
+					{/maccms:vod}
+				</ul>									
+			</div>
+		</div>
+	</div>	
+</div>
+{/maccms:type}

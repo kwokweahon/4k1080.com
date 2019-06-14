@@ -1,0 +1,39 @@
+<div class="stui-pannel stui-pannel-bg clearfix">
+	<div class="stui-pannel-box">
+		<div class="stui-pannel_hd">
+			<div class="stui-pannel__head active bottom-line clearfix">
+				<h3 class="title">
+					<img src="{$maccms.path}statics/icon/icon_12.png"/>
+					{$obj.type.type_name}周榜单
+				</h3>						
+			</div>																		
+		</div>
+		<div class="stui-pannel_bd">
+			<ul class="stui-vodlist__text col-pd clearfix">
+				{maccms:vod num="10" type="current" order="desc" by="hits_week"}
+					{include file="block/vod_box_rank"}	
+				{/maccms:vod}
+			</ul>	
+		</div>
+	</div>
+</div>
+
+<div class="stui-pannel stui-pannel-bg clearfix">
+	<div class="stui-pannel-box">
+		<div class="stui-pannel_hd">
+			<div class="stui-pannel__head active bottom-line clearfix">
+				<h3 class="title">
+					<img src="{$maccms.path}statics/icon/icon_12.png"/>
+					{$obj.type.type_name}月榜单
+				</h3>						
+			</div>																		
+		</div>
+		<div class="stui-pannel_bd">
+			<ul class="stui-vodlist__text col-pd clearfix">
+				{maccms:vod num="10" type="current" order="desc" by="hits_month"}
+					{include file="block/vod_box_rank"}	
+				{/maccms:vod}
+			</ul>	
+		</div>
+	</div>
+</div>

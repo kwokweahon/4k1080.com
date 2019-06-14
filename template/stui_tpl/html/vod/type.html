@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="seo/vod_type"}   
+	{include file="block/include"}
+</head>
+<body>
+	{include file="block/head"}
+    <div class="container">  
+    	<div class="row">
+    		{include file="type/slide"} <!-- 二级分类列表-->
+    	</div>
+    	{if condition="!$obj.childids eq '' "}
+    	<div class="row">   		
+    		{include file="type/list"} <!-- 二级分类列表-->
+    	</div>
+    	{else /}
+        <div class="row">
+        	{include file="type/list1"} <!-- 默认（无二级）分类列表-->       	
+        </div>
+        {/if}
+    </div>
+	{include file="block/foot"}
+</body>
+</html>

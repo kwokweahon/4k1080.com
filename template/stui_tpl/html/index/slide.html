@@ -1,0 +1,16 @@
+<!-- D072 by v.shoutu.cn -->
+<div class="stui-pannel stui-pannel-bg clearfix">
+	<div class="stui-pannel-box clearfix">
+		<div class="stui-pannel-bd">
+			<div class="carousel carousel_center col-pd flickity-page">
+				{maccms:vod num="10" type="all" order="desc" by="time" level="5"}
+		    	<div class="col-md-2 col-xs-1 list">
+					<a href="{:mac_url_vod_detail($vo)}" class="stui-vodlist__thumb active" title="{$vo.vod_name}" style="background: url({:mac_url_img($vo.vod_pic_slide)}) no-repeat; background-position:50% 50%; background-size: cover; padding-top: 45%;">
+						<span class="pic-text text-center">{$vo.vod_name}</span>
+					</a>
+				</div>
+				{/maccms:vod}
+			</div>
+		</div>
+	</div>
+</div>
